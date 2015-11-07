@@ -1,6 +1,5 @@
 <?php
-$connection = mysqli_connect('localhost','eloyalty','@csci155','eloyalty_data') or die(mysqli_error($connection));
-
+include('db.php);
 if(isset($_POST['action']))
 {          
     if($_POST['action']=="login")
@@ -26,7 +25,8 @@ if(isset($_POST['action']))
         $query = "SELECT email FROM users where email='".$email."'";
         $result = mysqli_query($connection,$query);
         $numResults = mysqli_num_rows($result);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // Validate email address
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+			// Validate email address
         {
             $message =  "Invalid email address please type a valid email!!";
         }
