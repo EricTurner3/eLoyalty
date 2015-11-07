@@ -43,31 +43,6 @@ if(isset($_POST['action']))
 }
  
 
-<!-- Login and Signup forms -->
-<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Login</a></li>
-    <li><a href="#tabs-2" class="active">Signup</a></li>
- 
-  </ul>                 
-  <div id="tabs-1">
-  <form action="" method="post">
-    <p><input id="email" name="email" type="text" placeholder="Email"></p>
-    <p><input id="password" name="password" type="password" placeholder="Password">
-    <input name="action" type="hidden" value="login" /></p>
-    <p><input type="submit" value="Login" /></p>
-  </form>
-  </div>
-  <div id="tabs-2">
-    <form action="" method="post">
-    <p><input id="username" name="username" type="text" placeholder="Username"></p>
-    <p><input id="email" name="email" type="text" placeholder="Email"></p>
-    <p><input id="password" name="password" type="password" placeholder="Password">
-    <input name="action" type="hidden" value="signup" /></p>
-    <p><input type="submit" value="Signup" /></p>
-  </form>
-  </div>
-</div>
 
 ?>
 //code found from http://www.phpgang.com/how-to-create-login-and-signup-form-in-php_377.html
