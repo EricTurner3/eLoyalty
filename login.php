@@ -42,7 +42,7 @@ if(isset($_POST['action']))
     }
 }
  
+//code found from http://www.phpgang.com/how-to-create-login-and-signup-form-in-php_377.html
 
 
 ?>
-//code found from http://www.phpgang.com/how-to-create-login-and-signup-form-in-php_377.html
