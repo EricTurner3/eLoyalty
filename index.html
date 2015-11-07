@@ -16,6 +16,12 @@
 
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -149,13 +155,18 @@
                             <!-- Portfolio Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist" id="tabs">
                                 
-                                <li role="presentation" class="active"><a href="#log" aria-controls="resume" role="tab" data-toggle="tab">Login</a></li>
-                                <li role="presentation"><a href="#reg" aria-controls="portfolio" role="tab" data-toggle="tab">Register</a></li>
+                                <li role="presentation" class="active"><a href="#loginForm" aria-controls="loginForm" role="tab" data-toggle="tab" id="log">Login</a></li>
+                                <li role="presentation"><a href="#registerForm" aria-controls="portfolio" role="tab" data-toggle="tab" id="reg">Register</a></li>
                             </ul>
+							
+							<!--Tabbed Page Content Loading Scripts -->
+                            <script>$(document).ready(function() {$(this).tab('show');});</script>
+                            <script>$("#log").click(function() {$(this).tab('show');});</script>
+                            <script>$("#reg").click(function() {$(this).tab('show');});</script>
                             
                             <!-- Tab panes -->
                             <div class="tab-content well">
-                                <div role="tabpanel" class="tab-pane active" id="log">
+                                <div role="tabpanel" class="tab-pane active" id="loginForm">
 									<h2> Login </h2>
 									<form class="form-horizontal">
 										<div class="form-group">
@@ -184,7 +195,7 @@
 										</div>
 									</form>
 								</div>
-                                <div role="tabpanel" class="tab-pane" id="reg">
+                                <div role="tabpanel" class="tab-pane" id="registerForm">
 									<form class="form-horizontal">
 										<div class="form-group">
 											<label for="inputUsername" class="col-sm-2 control-label">Username:</label>
@@ -246,11 +257,7 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    
 
     <!-- Custom Theme JavaScript -->
     <script>
