@@ -32,7 +32,7 @@ if(isset($_POST['action']))
         }
         elseif($numResults>=1)
         {
-            $message = $email." Email already exist!!";
+            $message = $email." Email already exists!!";
         }
         else
         {
