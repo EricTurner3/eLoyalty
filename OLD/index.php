@@ -1,0 +1,334 @@
+<?php
+include('db.php');
+
+if(isset($_POST['action']))
+{          
+    if($_POST['action']=="login")
+    {
+        $email = mysqli_real_escape_string($connection,$_POST['email']);
+        $pass = mysqli_real_escape_string($connection,$_POST['password']);
+        $strSQL = mysqli_query($connection,"select username from users where email='".$email."' and pass='".md5($pass)."'");
+        $Results = mysqli_fetch_array($strSQL);
+               
+    }
+    elseif($_POST['action']=="signup")
+    {
+        $username       = mysqli_real_escape_string($connection,$_POST['username']);
+        $email      = mysqli_real_escape_string($connection,$_POST['email']);
+        $pass   = mysqli_real_escape_string($connection,$_POST['pass']);
+        $query = "SELECT email FROM users where email='".$email."'";
+        $result = mysqli_query($connection,$query);
+        $numResults = mysqli_num_rows($result);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // Validate email address
+        {
+            $message =  "Invalid email address please type a valid email!!";
+        }
+        elseif($numResult >= 1) //&ge means >=
+        {
+            $message = $email." Email already exists!!";
+        }
+        else
+        {
+            mysql_query("insert into users(username,email,password) values('".$username."','".$email."','".md5($pass)."')");
+            $message = "Signup Sucessfully!!";
+
+        }
+    }
+}
+//code found from http://www.phpgang.com/how-to-create-login-and-signup-form-in-php_377.html
+$message
+ ?>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>eLoyalty</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js does not work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top"  onclick = $("#menu-close").click(); >eLoyalty</a>
+            </li>
+            <li>
+                <a href="#top" onclick = $("#menu-close").click(); >Home</a>
+            </li>
+            <li>
+                <a href="#about" onclick = $("#menu-close").click(); >About</a>
+            </li>
+            <li>
+                <a href="#services" onclick = $("#menu-close").click(); >Services</a>
+            </li>
+            <li>
+                <a href="#login" onclick = $("#menu-close").click(); >Login</a>
+            </li>
+            <li>
+                <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1 style="color:#FFF">eLoyalty</h1>
+            <h3 style="color:#FFF">Loyalty Card Management Made Simple</h3>
+            <br>
+            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>eLoyalty is your next card management system</h2>
+                    <p class="lead">eLoyalty is a free service to load up all of your loyalty cards and take them with you on the go.</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Services -->
+    <!-- The circle icons use Font Awesomes stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Our Services</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Cloud Storage</strong>
+                                </h4>
+                                <p>All of your cards are here in the cloud, only accesible by you</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Locations</strong>
+                                </h4>
+                                <p>There are no bounds as to what cards you can add. Just select the place you want and add the card online.</p>
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-tablet fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Mobile Friendly</strong>
+                                </h4>
+                                <p>Our services are mobile and tablet friendly, access us any place or anywhere.</p>
+                                
+                            </div>
+                        </div>
+         
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+
+    <!-- Portfolio -->
+    <section id="login" class="login">
+        <div class="container">
+			
+			<div id="tabs">
+                            <!-- Portfolio Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist" id="tabs">
+                                
+                                <li role="presentation" class="active"><a href="#loginForm" aria-controls="loginForm" role="tab" data-toggle="tab" id="log">Login</a></li>
+                                <li role="presentation"><a href="#registerForm" aria-controls="portfolio" role="tab" data-toggle="tab" id="reg">Register</a></li>
+                            </ul>
+							
+							<!--Tabbed Page Content Loading Scripts -->
+                            <script>$(document).ready(function() {$(this).tab('show');});</script>
+                            <script>$("#log").click(function() {$(this).tab('show');});</script>
+                            <script>$("#reg").click(function() {$(this).tab('show');});</script>
+                            
+                            <!-- Tab panes -->
+                            <div class="tab-content well">
+                                <div role="tabpanel" class="tab-pane active" id="loginForm">
+									<h2> Login </h2>
+									<form action="" method="post" class="form-horizontal">
+										<div class="form-group">
+											<label for="username" class="col-sm-2 control-label">Username:</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="pass" class="col-sm-2 control-label">Password:</label>
+											<div class="col-sm-10">
+												<input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-offset-2 col-sm-10">
+												<button type="submit" value="login" class="btn btn-default">Sign in</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                                <div role="tabpanel" class="tab-pane" id="registerForm">
+								<h2> Register </h2>
+									<form action="" method="post" class="form-horizontal">
+										<div class="form-group">
+											<label for="inputUsername" class="col-sm-2 control-label">Username:</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="inputUsername" name="username" placeholder="Enter your Username">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+											<div class="col-sm-10">
+												<input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter your Email">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputPassword" class="col-sm-2 control-label">Password:</label>
+											<div class="col-sm-10">
+												<input type="password" class="form-control" id="inputPassword" name="pass" placeholder="Enter your Password">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="confirmPassword" class="col-sm-2 control-label">Confirm Password:</label>
+											<div class="col-sm-10">
+												<input type="password" class="form-control" id="confirmPassword"  placeholder="Re-enter your password">
+											</div>
+										</div>
+									
+										<div class="form-group">
+											<div class="col-sm-offset-2 col-sm-10">
+												<button type="submit" value="signup" class="btn btn-default">Register</button>
+											</div>
+										</div>
+									</form>
+								</div> 
+                            </div>
+                            
+                    
+                        </div>
+        </div>
+        <!-- /.container -->
+    </section>
+
+
+ 
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>eLoyalty - by Penguino</strong>
+                    </h4>
+                    <p>University of Indianapolis</p>
+                    <br>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Penguino 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+	
+</body>
+</html>
+
+
+
