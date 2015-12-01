@@ -17,7 +17,7 @@ eLoyalty Card Management System
 /* Group Roles
 Eric - Pseudo code and program base
 Zavier - Login/ Register Methods
-Chan - File Management/Creation (xml format would be easiest)
+Chan - File Management/Creation
 Josh - Barcode & Cards
 Jake - User Hub Method
 
@@ -68,6 +68,8 @@ void login(){
 cout << "Login: " << endl;
 //Todo Login method
     /*Psuedo Code 
+    Find by string in file: username::pasword <<endl;
+    "::" is delimiter to seperate
     Ask for user input for username and password
     Open the file of users and check if  the username is there and matches password
     if it does, set currentUser from the username variable, so the program can refer to them, then push to next method
