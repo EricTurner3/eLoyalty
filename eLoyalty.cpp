@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+
 using namespace std;
 /*
       _                       _ _         
@@ -64,8 +66,6 @@ int main() {
 }
 
 //Login Method (Zavier)
-void login(){
-cout << "Login: " << endl;
 //Todo Login method
     /*Psuedo Code 
     Find by string in file: username::pasword <<endl;
@@ -75,17 +75,60 @@ cout << "Login: " << endl;
     if it does, set currentUser from the username variable, so the program can refer to them, then push to next method
     if it fails, recall the login method
     */
+void login(){
+cout << "Login: " << endl;
+cout << "Username: ";
+cin >> username;
+cout << "Password: ";
+cin >> password;
+
+ofstream login;
+ifstream loginfile ("login.txt");
+string search = username << "::" << password;
+
+	int linenumber = 0;
+		while ( getline (loginfile,line) )
+		{
+			linenumber ++;
+			if (line.find(search, 0) != string::npos) {
+				cout << "logged in." << endl;
+				home();
+			}
+			else 
+			{
+				cout << "Incorrect Username or Password." << endl;
+				login();
+			}
+			cout << line << '\n';
+		}
+	loginfile.close();
+
 }
+
+
 
 //Registration Method (Zavier)
 void register(){
 cout << "Registration: " << endl;
+
+cout << "Username: ";
+cin >> username;
+cout << "Password: ";
+cin >> password;
+
+ofstream signin;
+signin.open ("login.txt")
+signin << username << "::" << password << endl;
+
+signin.close();
+cout << "User registered." << endl;
 /*Psuedo Code
 Ask for Username and password (we dont even need to worry about emails or that stuff tbh
 Confirm password as well (if method to check that both passwords work, if else, recall method throw error to console "Passes dont match"
 Also read the file and make sure username doesnt exist, if so, restart, throw error to console "User exists"
 If all works, then call the login method for user to login and run userFile method
 */
+
 }
 
 //This is where the program goes after logged in succesfully (Jake & Josh)
