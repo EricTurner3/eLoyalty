@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
 
 using namespace std;
 /*
@@ -36,21 +41,60 @@ string currentUser;
 int cardsOnFile;
 //Register Variable
 string confirmPass;
-
+//Used for number generation
+int result, digitIndex, curDigit;
+int resultNum;
+int numResultsWanted = 10;
+//Used for deciding which company to generate barcodes for
+int company;
 
 
 
 //This is where the program goes after logged in succesfully (Jake & Josh)
 void home() 
+
+//Barcode generation (Jake)
 {
-    /* Psuedo Code
-    Welcome user by name so cout "Welcome " << currentUser
-    Show the user how many cards are displayed on file (each user should have their own file based on their username (eric.xml) to store cards
-    Have a switch statement followed by options on what to do. Aka press 1 to view cards, press 2 to add a card, press 3 to delete a card
-    Josh you can do the barcode adding method so you know what to do on the userFile() method
-    Jake just create the shell and stuff (switch statement) and make it seem like a user-friendly thing with questions & easily displayed data
-    
-    */
+	
+  cout << "Welcome! Do you want barcodes from Target or Walmart? Enter 1 or 2 to make your choice." << endl;
+  cin >> company;
+
+ if (company == 1) //checks company against the number one and executes code based on response from user.
+{
+// init rand seed
+    srand(time(NULL));
+
+    for (resultNum=0; resultNum<numResultsWanted; resultNum++)
+{
+    result = 0;
+    for (digitIndex=0; digitIndex<4; digitIndex++)
+{
+  curDigit = rand() % 10;
+  curDigit *= pow(10, digitIndex);
+  result += curDigit;
+}
+  printf("Barcodes for Target: 1%d\n", result);
+      
+}
+   return 0;
+}
+ else; //executes based on user response, number being 2.
+{
+    srand(time(NULL));
+
+     for (resultNum=0; resultNum<numResultsWanted; resultNum++)
+{
+    result = 0;
+    for (digitIndex=0; digitIndex<4; digitIndex++)
+{
+  curDigit = rand() % 10;
+  curDigit *= pow(10, digitIndex);
+  result += curDigit;
+}
+  printf("Barcodes for Walmart: 2%d\n", result);
+}
+}
+}
     cout << ""<< endl;
     cout << "Welcome" << currentUser;
     cout << "--------"<< endl;
