@@ -45,7 +45,9 @@ int result, digitIndex, curDigit;
 int resultNum;
 int numResultsWanted = 10;
 //Used for deciding which company to generate barcodes for
-int company;
+int company, Target, Target2, Walmart, Walmart2;
+int TargetCount = 0;
+int WalmartCount = 0;
 
 
 
@@ -54,49 +56,38 @@ void home()
 
 //Barcode generation (Jake)
 {
-	
-  cout << "Welcome! Do you want barcodes from Target or Walmart? Enter 1 or 2 to make your choice." << endl;
+  cout << "Is your number from Target or Walmart? Enter one or two to make a choice." << endl;
   cin >> company;
-
- if (company == 1) //checks company against the number one and executes code based on response from user.
-{
-// init rand seed
-    srand(time(NULL));
-
-    for (resultNum=0; resultNum<numResultsWanted; resultNum++)
-{
-    result = 0;
-    for (digitIndex=0; digitIndex<4; digitIndex++)
-{
-  curDigit = rand() % 10;
-  curDigit *= pow(10, digitIndex);
-  result += curDigit;
+  
+  if (company == 1)
+  
+  {
+    cout << "Please enter the number." << endl;
+    cin >> Target;
+    
+    while (TargetCount < 1)
+    {
+    Target2 = ++TargetCount;
+      cout << "Your Target count is " << Target2 << "." << endl;
+    return 0;
+    }
+  }
+  
+  else
+  {
+    cout << "Please enter the number." << endl;
+    cin >> Walmart;
+    
+    while (WalmartCount < 1)
+    {
+    Walmart2 = ++WalmartCount;
+      cout << "Your Walmart count is " << Walmart2 << "." << endl;
+    return 0;
+    }
+  }
+  return 0;
+ 
 }
-  printf("Barcodes for Target: 1%d\n", result);
-      
-}
-   return 0;
-}
- else; //executes based on user response, number being 2.
-{
-    srand(time(NULL));
-
-     for (resultNum=0; resultNum<numResultsWanted; resultNum++)
-{
-    result = 0;
-    for (digitIndex=0; digitIndex<4; digitIndex++)
-{
-  curDigit = rand() % 10;
-  curDigit *= pow(10, digitIndex);
-  result += curDigit;
-}
-  printf("Barcodes for Walmart: 2%d\n", result);
-}
-}
-}
-    cout << ""<< endl;
-    cout << "Welcome" << currentUser;
-    cout << "--------"<< endl;
 }
 
 //Management of the card storage file (Josh)
