@@ -87,7 +87,7 @@ void home()
   }
  
 }
-}
+
 
 //Management of the card storage file (Josh)
 void userFile()
