@@ -24,7 +24,6 @@ eLoyalty Card Management System
 /* Group Roles
 Eric - Pseudo code and program base
 Zavier - Login/ Register Methods
-Chan - File Management/Creation
 Josh - Barcode & Cards
 Jake - User Hub Method
 
@@ -100,7 +99,7 @@ void home()
     cout << "--------"<< endl;
 }
 
-//Management of the card storage file (Chan & Josh)
+//Management of the card storage file (Josh)
 void userFile()
 {
     /*Psuedo Code
