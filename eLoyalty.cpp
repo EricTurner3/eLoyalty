@@ -69,7 +69,7 @@ void home()
     {
     Target2 = ++TargetCount;
       cout << "Your Target count is " << Target2 << "." << endl;
-    return 0;
+    break;
     }
   }
   
@@ -82,7 +82,7 @@ void home()
     {
     Walmart2 = ++WalmartCount;
       cout << "Your Walmart count is " << Walmart2 << "." << endl;
-    return 0;
+    break;
     }
   }
  
