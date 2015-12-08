@@ -50,6 +50,18 @@ int TargetCount = 0;
 int WalmartCount = 0;
 
 
+//Management of the card storage file (Josh)
+void userFile(int card)
+{
+    ofstream outputFile;
+    outputFile.open("DataFile.txt");
+    cout << "Now writing data to a file";
+    
+    outputFile << card <<endl;
+    
+    outputFile.close();
+    cout << "Done.\n";
+}
 
 //This is where the program goes after logged in succesfully (Jake & Josh)
 void home() 
@@ -91,18 +103,7 @@ void home()
 }
 
 
-//Management of the card storage file (Josh)
-void userFile(int card)
-{
-    ofstream outputFile;
-    outputFile.open("DataFile.txt");
-    cout << "Now writing data to a file";
-    
-    outputFile << card <<endl;
-    
-    outputFile.close();
-    cout << "Done.\n";
-}
+
 
 //Registration Method (Zavier)
 void reg(){
