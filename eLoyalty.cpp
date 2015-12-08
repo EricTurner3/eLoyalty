@@ -68,6 +68,7 @@ void home()
     while (TargetCount < 1)
     {
     Target2 = ++TargetCount;
+    userFile(Target2);
       cout << "Your Target count is " << Target2 << "." << endl;
     break;
     }
@@ -81,6 +82,7 @@ void home()
     while (WalmartCount < 1)
     {
     Walmart2 = ++WalmartCount;
+    userFile(Walmart2);
       cout << "Your Walmart count is " << Walmart2 << "." << endl;
     break;
     }
@@ -90,16 +92,16 @@ void home()
 
 
 //Management of the card storage file (Josh)
-void userFile()
+void userFile(int card)
 {
-    /*Psuedo Code
-    This method needs to create and maintain an xml file (if you can do it in a diff format go for it), properly laid out, for card storage
-    After registration, this is called to create the empty shell of a file
-    This will be called by home() as well to add or remove cards
-    Cards need to have an id number (randomly generated on add) so you can just say remove card id 375 to delete it.
-    Display out success/error messages ex Success! Card has been added, ID number is: xxx" then return to home method()
-    Josh, just do anything pertaining to the cards/barcodes ie, interpreting the data.
-    */
+    ofstream outputFile;
+    outputFile.open("DataFile.txt");
+    cout << "Now writing data to a file";
+    
+    outputFile << card <<endl;
+    
+    outputFile.close();
+    cout << "Done.\n";
 }
 
 //Registration Method (Zavier)
