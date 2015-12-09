@@ -104,7 +104,7 @@ void home()
     
   }
   cout << "Would you like to add another card? Type 1 for yes and 0 for no" <<endl;
-  cin >> more;
+  cin >> moreCards;
 }
 cout << "Cards added! Logging out..." <<endl;
  return;
