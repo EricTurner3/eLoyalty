@@ -37,9 +37,6 @@ string password;
 int entry;
 //Home screen Variables
 string currentUser;
-int cardsOnFile;
-//Register Variable
-string confirmPass;
 //Used for number generation
 int result, digitIndex, curDigit;
 int resultNum;
