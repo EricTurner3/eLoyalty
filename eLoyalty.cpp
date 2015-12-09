@@ -51,7 +51,7 @@ int WalmartCount = 0;
 void userFile(string user, int card)
 {
     ofstream outputFile;
-    outputFile.open("DataFile.txt");
+    outputFile.open("DataFile.txt", ios::app);
     cout << "Now writing data to a file" <<endl;
     
     outputFile << user << ":" << card <<endl;
@@ -115,7 +115,7 @@ void reg(){
     cin >> password;
 
     fstream signin;
-    signin.open ("login.txt");
+    signin.open ("login.txt", ios::app);
     signin << username << "::" << password << endl;
 
     signin.close();
