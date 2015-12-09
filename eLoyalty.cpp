@@ -69,7 +69,7 @@ void home()
 {
   cout << "" <<endl;
   cout << "Welcome " << currentUser << " to eLoyalty!" <<endl;
-  cout << "Is your number from Target or Walmart? Enter one or two to make a choice." << endl;
+  cout << "Is your number from Target or Walmart? Enter 1 or 2 to make a choice." << endl;
   cin >> company;
   
   if (company == 1)
@@ -77,8 +77,8 @@ void home()
   {
     cout << "Please enter the loyalty card number." << endl;
     cin >> Target;
-    
-    Target2 = ++TargetCount; //AutoIncrementing number on how many target cards
+    TargetCount++; //AutoIncrementing number on how many target cards
+    Target2 = TargetCount; 
     userFile(currentUser,Target2,Target);
     cout << "Your Target card count is " << Target2 << "." << endl;
     
@@ -89,8 +89,8 @@ void home()
     cout << "Please enter the loyalty card number." << endl;
     cin >> Walmart;
     
-    
-    Walmart2 = ++WalmartCount; //AutoIncrementing number on how many target cards
+    WalmartCount++; //AutoIncrementing number on how many walmart cards
+    Walmart2 = WalmartCount;
     //Writes the current user, the index number of Walmart cards, and the card number
     userFile(currentUser,Walmart2,Walmart);
     cout << "Your Walmart card count is " << Walmart2 << "." << endl;
