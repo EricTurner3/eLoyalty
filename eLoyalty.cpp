@@ -48,16 +48,16 @@ int WalmartCount = 0;
 
 
 //Management of the card storage file (Josh)
-void userFile(int card)
+void userFile(string user, int card)
 {
     ofstream outputFile;
     outputFile.open("DataFile.txt");
-    cout << "Now writing data to a file";
+    cout << "Now writing data to a file" <<endl;
     
-    outputFile << card <<endl;
+    outputFile << user << ":" << card <<endl;
     
     outputFile.close();
-    cout << "Done.\n";
+    cout << "Username and Card Choice saved!"<<endl;
 }
 
 //This is where the program goes after logged in succesfully (Jake & Josh)
@@ -79,7 +79,7 @@ void home()
     while (TargetCount < 1)
     {
     Target2 = ++TargetCount;
-    userFile(Target2);
+    userFile(currentUser,Target2);
       cout << "Your Target count is " << Target2 << "." << endl;
     break;
     }
@@ -93,7 +93,7 @@ void home()
     while (WalmartCount < 1)
     {
     Walmart2 = ++WalmartCount;
-    userFile(Walmart2);
+    userFile(currentUser,Walmart2);
       cout << "Your Walmart count is " << Walmart2 << "." << endl;
     break;
     }
