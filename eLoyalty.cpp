@@ -48,7 +48,7 @@ int WalmartCount = 0;
 
 
 //Management of the card storage file (Josh)
-void userFile(string user, int cardType, string cardNumber)
+void userFile(string user, int cardType, int cardNumber)
 {
     ofstream outputFile;
     outputFile.open("DataFile.txt", ios::out | ios::in | ios::app);
