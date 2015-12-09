@@ -73,7 +73,7 @@ void home()
   if (company == 1)
   
   {
-    cout << "Please enter the number." << endl;
+    cout << "Please enter the loyalty card number." << endl;
     cin >> Target;
     
     while (TargetCount < 1)
@@ -87,7 +87,7 @@ void home()
   
   else
   {
-    cout << "Please enter the number." << endl;
+    cout << "Please enter the loyalty card number." << endl;
     cin >> Walmart;
     
     while (WalmartCount < 1)
