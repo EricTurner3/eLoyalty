@@ -72,7 +72,7 @@ void home()
   cout << "" << endl;
   cout << "Welcome " << currentUser << " to eLoyalty!" <<endl;
   
-  while(moreCards == 1)
+  do
   {
   cout <<""<<endl;
   cout << "Is your number from Target or Walmart? Enter 1 or 2 to make a choice." << endl;
@@ -105,7 +105,7 @@ void home()
   }
   cout << "Would you like to add another card? Type 1 for yes and 0 for no" <<endl;
   cin >> moreCards;
-}
+}while(moreCards == 1);
 cout << "Cards added! Logging out..." <<endl;
  return;
 }
