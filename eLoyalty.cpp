@@ -81,7 +81,7 @@ void home()
   if (company == 1)
   
   {
-    cout << "Please enter the loyalty card number." << endl;
+    cout << "Please enter the 9 digit loyalty card number ." << endl;
     cin >> Target;
     TargetCount++; //AutoIncrementing number on how many target cards
     Target2 = TargetCount; 
@@ -92,7 +92,7 @@ void home()
   
   else
   {
-    cout << "Please enter the loyalty card number." << endl;
+    cout << "Please enter the 9 digit loyalty card number." << endl;
     cin >> Walmart;
     
    
