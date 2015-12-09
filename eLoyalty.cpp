@@ -45,7 +45,7 @@ int numResultsWanted = 10;
 int company, Target, Target2, Walmart, Walmart2;
 int TargetCount = 0;
 int WalmartCount = 0;
-int more = 1;
+int moreCards = 1;
 
 
 //Management of the card storage file (Josh)
@@ -69,10 +69,11 @@ void home()
 //Barcode generation (Jake)
 {
 
-  cout << "" <<endl;
+  cout << "" << endl;
   cout << "Welcome " << currentUser << " to eLoyalty!" <<endl;
-  while(more==1)
-{
+  
+  while(moreCards == 1)
+  {
   cout <<""<<endl;
   cout << "Is your number from Target or Walmart? Enter 1 or 2 to make a choice." << endl;
   cin >> company;
@@ -94,7 +95,7 @@ void home()
     cout << "Please enter the loyalty card number." << endl;
     cin >> Walmart;
     
-    while()
+   
     WalmartCount++; //AutoIncrementing number on how many walmart cards
     Walmart2 = WalmartCount;
     //Writes the current user, the index number of Walmart cards, and the card number
