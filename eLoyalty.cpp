@@ -68,6 +68,8 @@ void home()
 
 //Barcode generation (Jake)
 {
+  cout << "" <<endl;
+  cout << "Welcome " << currentUser << " to eLoyalty!" <<endl;
   cout << "Is your number from Target or Walmart? Enter one or two to make a choice." << endl;
   cin >> company;
   
