@@ -58,6 +58,7 @@ void userFile(string user, int card)
     
     outputFile.close();
     cout << "Username and Card Choice saved!"<<endl;
+    return;
 }
 
 //This is where the program goes after logged in succesfully (Jake & Josh)
@@ -98,7 +99,7 @@ void home()
     break;
     }
   }
- 
+ return;
 }
 
 
