@@ -49,14 +49,14 @@ int moreCards = 1;
 
 
 //Management of the card storage file (Josh)
-void userFile(string user, int cardType, int cardNumber)
+void userFile(string user,string cardType, int cardIndex, int cardNumber)
 {
     ofstream outputFile;
     outputFile.open("DataFile.txt", ios::out | ios::in | ios::app);
     cout << "Now writing data to a file" <<endl;
     
     //cardType 1 is Target and 2 is Walmart
-    outputFile << user << ":" << cardType <<":" << cardNumber <<endl;
+    outputFile << user << ":" << cardType <<":" <<cardIndex<< ":" << cardNumber <<endl;
     
     outputFile.close();
     cout << "Username and Card Choice saved!"<<endl;
@@ -85,7 +85,7 @@ void home()
     cin >> Target;
     TargetCount++; //AutoIncrementing number on how many target cards
     Target2 = TargetCount; 
-    userFile(currentUser,Target2,Target);
+    userFile(currentUser,"Target",Target2,Target);
     cout << "Your Target card count is " << Target2 << "." << endl;
     
   }
@@ -99,7 +99,7 @@ void home()
     WalmartCount++; //AutoIncrementing number on how many walmart cards
     Walmart2 = WalmartCount;
     //Writes the current user, the index number of Walmart cards, and the card number
-    userFile(currentUser,Walmart2,Walmart);
+    userFile(currentUser,"Walmart",Walmart2,Walmart);
     cout << "Your Walmart card count is " << Walmart2 << "." << endl;
     
   }
